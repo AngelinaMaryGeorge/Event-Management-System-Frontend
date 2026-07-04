@@ -12,9 +12,10 @@ const EditEvent = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // 5. SECURITY CHECK: Kick out non-organizers
-  const isOrganizer = user && user.role === 'ORGANIZER';
-  if (!isOrganizer) {
+  // 5. SECURITY CHECK: Allow Organizers, Admins, and Super Admins
+  const canEdit = user && ['ORGANIZER', 'ADMIN', 'SUPER_ADMIN'].includes(user.role);
+  
+  if (!canEdit) {
     return <Navigate to="/dashboard" replace />;
   }
 
