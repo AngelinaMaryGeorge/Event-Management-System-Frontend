@@ -79,7 +79,7 @@ const Dashboard = () => {
             return (
               <div key={reg.id} style={styles.ticketCard}>
                 
-                {/* 2. The New QR Code Section */}
+                {/* 2. The QR Code Section */}
                 <div style={styles.qrSection}>
                   <div style={{ background: 'white', padding: '8px', borderRadius: '8px' }}>
                     <QRCode 
