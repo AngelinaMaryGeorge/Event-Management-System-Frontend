@@ -21,7 +21,7 @@ const Register = () => {
 
     try {
       await register(formData);
-      // Registration successful! Send them to login.
+      // Registration successful, Send them to login.
       alert('Account created successfully! Please log in.');
       navigate('/login'); 
     } catch (err) {

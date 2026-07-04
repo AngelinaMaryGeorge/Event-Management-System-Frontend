@@ -2,16 +2,16 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getEventParticipants } from '../api/eventApi';
 import { markAttendance, removeParticipantAdmin } from '../api/registrationApi';
-import { AuthContext } from '../contexts/AuthContext'; // 1. Bring in context
+import { AuthContext } from '../contexts/AuthContext'; // Bring in context
 
 const EventParticipants = () => {
   const { id } = useParams();
-  const { user } = useContext(AuthContext); // 2. Get the user
+  const { user } = useContext(AuthContext); // Get the user
   const [participants, setParticipants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // 3. Define the clever role checks
+  // Define the role checks
   const isOrganizer = user?.role === 'ORGANIZER';
   const isAdmin = user?.role === 'ADMIN' || user?.role === 'SUPER_ADMIN';
 

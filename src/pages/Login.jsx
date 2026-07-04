@@ -21,10 +21,10 @@ const Login = () => {
 
     try {
       await login(formData);
-      // If successful, the AuthContext saves the token, and we redirect:
+      // If successful, the AuthContext saves the token, and redirect:
       navigate('/dashboard'); 
     } catch (err) {
-      // Catch errors from your backend's errorMiddleware
+      // Catch errors from the backend's errorMiddleware
       setError(err.response?.data?.message || 'Failed to login. Please try again.');
     } finally {
       setIsSubmitting(false);
